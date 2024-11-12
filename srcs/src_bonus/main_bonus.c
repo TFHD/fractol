@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	error_manager(t_mlx *app, float *params, int ac, int is_params)
 {
@@ -26,6 +26,7 @@ int	error_manager(t_mlx *app, float *params, int ac, int is_params)
 			ft_printf("Use this format :");
 			ft_printf(" ./fractol <fractol_name> <Cx> <Cy>\n");
 			ft_printf("Fractol name :\n1) mandelbrot\n2) julia\n");
+			ft_printf("3) burning-ship\n");
 			free(app);
 			free(params);
 			return (0);
@@ -49,7 +50,7 @@ int	main(int ac, char **av)
 		return (0);
 	app->mlx = mlx_init();
 	mlx_set_fps_goal(app->mlx, FPS);
-	app->win = mlx_new_window(app->mlx, WIDTH, HEIGHT, "Fractol");
+	app->win = mlx_new_window(app->mlx, WIDTH, HEIGHT, "Fractol Bonus");
 	mandelbrot(app);
 	mlx_on_event(app->mlx, app->win, MLX_KEYDOWN, key_event, app);
 	mlx_on_event(app->mlx, app->win, MLX_MOUSEWHEEL, mouse_event, app);

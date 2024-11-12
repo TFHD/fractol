@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 12:08:15 by sabartho          #+#    #+#             */
-/*   Updated: 2024/11/10 16:21:39 by sabartho         ###   ########.fr       */
+/*   Created: 2024/11/10 19:41:21 by sabartho          #+#    #+#             */
+/*   Updated: 2024/11/10 19:41:25 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # define FPS 120
 # define WIDTH 1000
@@ -28,7 +28,12 @@ typedef struct s_mlx
 	int		id;
 	void	*mlx;
 	void	*win;
+	int		x_mouse;
+	int		y_mouse;
+	float	x_move;
+	float	y_move;
 	float	zoom;
+	int		color;
 	float	x_min;
 	float	y_min;
 	float	x_max;
@@ -53,15 +58,18 @@ float	*ft_parse(int ac, char **av);
 void	mandelbrot(t_mlx *app);
 void	fractals_calc(t_mlx *app, t_complex *cpl);
 void	choose_fractol(t_complex *cpl, t_mlx *app);
+float	get_mouse_caption(int pos_mouse, int win_size);
 int		win_event(int event, void *mlx);
+void	ft_move_arrow(int key, t_mlx *app);
 int		key_event(int key, void *params);
 int		mouse_event(int event, void *params);
+void	ft_color_shift(t_mlx *app);
 void	print_pixels(t_mlx *app, int x, int y, int n);
 int		set_id(char *str);
 void	init_values(t_mlx *app, float *params, int ac);
 int		ft_strcmp(const char *s1, const char *s2);
 void	mandelbrot(t_mlx *app);
 void	julia(t_mlx *app, t_complex *cpl);
-void	mandelbrot_calc(t_mlx *app, t_complex *cpl);
+void	mandelbrot_burning_ship(t_mlx *app, t_complex *cpl);
 
 #endif

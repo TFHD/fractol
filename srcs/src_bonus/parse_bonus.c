@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   parse_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sabartho <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 04:26:04 by sabartho          #+#    #+#             */
-/*   Updated: 2024/11/09 05:03:56 by sabartho         ###   ########.fr       */
+/*   Updated: 2024/11/12 12:06:36 by sabartho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "fractol_bonus.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -47,7 +47,11 @@ float	ft_atof(char *str)
 	pow = 0.1;
 	result = ft_atoi(str);
 	while (str[i] != '.')
+	{
+		if (str[i] == 0)
+			return (result);
 		i++;
+	}
 	i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
