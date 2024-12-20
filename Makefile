@@ -58,7 +58,7 @@ clean:
 fclean: clean
 	rm -f ${NAME}
 	rm -f ${NAMEB}
-	rm -f libftprintf.a
+	rm -f srcs/ft_printf/libftprintf.a
 	make -C srcs/MacroLibX fclean
 
 re: fclean all
